@@ -1,0 +1,4 @@
+title: My Wish List
+description: Problems I want solved. I build a tool for each one, and you're welcome to use them.
+exclude:
+  - README.md
