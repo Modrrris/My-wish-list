@@ -91,7 +91,7 @@
       {% endfor %}
     </ol>
 
-    <footer>{{ site.data.wishes.size }} {% if site.data.wishes.size == 1 %}wish{% else %}wishes{% endif %}{% if site.data.projects.size > 0 %} · {{ site.data.projects.size }} projects{% endif %} · want to use one of these? Get in touch.</footer>
+    <footer>{{ site.data.wishes.size }} {% if site.data.wishes.size == 1 %}wish{% else %}wishes{% endif %}{% if site.data.projects.size > 0 %} · {{ site.data.projects.size }} {% if site.data.projects.size == 1 %}project{% else %}projects{% endif %}{% endif %} · want to use one of these? Get in touch.</footer>
   </main>
 </body>
 </html>

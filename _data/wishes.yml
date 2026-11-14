@@ -10,8 +10,9 @@
 #  Keep the two-space indent under each "- title:".
 # ─────────────────────────────────────────────
 
-- title: Tend the work, not the harvest
-  description: A gardener who keeps digging up the seeds to check on them grows nothing. Plant, water, keep building. The harvest comes in its own season.
+- title: Tend the work, not the money
+  description: A gardener tends the soil, not the price of the harvest. I want to put my days into building things and trust that money follows good work, not the other way round.
+  project: mindset
 
 - title: Publish something useful, just to prove I can
   description: Build a small tool that someone can actually use, made entirely by talking through voice notes, and put it out there.

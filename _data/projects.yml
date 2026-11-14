@@ -15,4 +15,7 @@
 #      link: https://...
 # ─────────────────────────────────────────────
 
-[]
+- id: mindset
+  name: Build or Money?
+  status: live
+  link: mindset/
