@@ -8,20 +8,10 @@
 #                 leave it out while no project exists yet)
 #
 #  Keep the two-space indent under each "- title:".
-#  The examples below are placeholders — replace them with yours.
 # ─────────────────────────────────────────────
 
-- title: Remember what I read
-  description: I read lots of articles and forget them a week later. I want a quick way to save and resurface the good bits.
-  project: notebook
+- title: Focus on building, not on money
+  description: Thinking about money and business overwhelms me and goes against my nature. For now I just want to build things. The money part can come later.
 
-- title: Turn voice notes into a to-do list
-  description: I record ideas while walking. I want them turned into tasks automatically.
-  project: notebook
-
-- title: Plan meals from what's in the fridge
-  description: Tell it what I have, get a dinner idea that doesn't need another trip to the shop.
-  project: pantry
-
-- title: Remember to call my parents
-  description: A gentle nudge when it's been too long.
+- title: Publish something useful, just to prove I can
+  description: Build a small tool that someone can actually use, made entirely by talking through voice notes, and put it out there.
