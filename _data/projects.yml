@@ -1,0 +1,21 @@
+# ─────────────────────────────────────────────
+#  YOUR PROJECTS — the tools that fulfil wishes.
+#
+#  Each project starts with "- id:". Fields:
+#    id      short name with no spaces, used by wishes to point here (required)
+#    name    shown on the page (required)
+#    status  building | live (optional, default: building)
+#    link    where the project lives (optional)
+#
+#  One project can fulfil many wishes.
+#  The examples below are placeholders — replace them with yours.
+# ─────────────────────────────────────────────
+
+- id: pantry
+  name: Pantry Chef
+  status: building
+
+- id: notebook
+  name: Pocket Notebook
+  status: live
+  link: https://example.com

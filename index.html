@@ -29,25 +29,37 @@
     main { max-width: 680px; margin: 0 auto; padding: 48px 16px 64px; }
     h1 { font-size: 2rem; margin: 0 0 8px; letter-spacing: -0.02em; }
     .intro { color: var(--muted); margin: 0 0 32px; }
-    ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-    li {
+    .head, .row {
+      display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px;
+    }
+    .head {
+      padding: 0 16px 8px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--muted);
+    }
+    ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .row {
       background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-      padding: 18px 20px;
+      padding: 16px;
     }
-    .top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    h2 { font-size: 1.1rem; margin: 0; }
+    h2 { font-size: 1.05rem; margin: 0; line-height: 1.35; }
+    p.desc { margin: 4px 0 0; color: var(--muted); font-size: 0.95rem; }
+    .project { border-left: 1px solid var(--line); padding-left: 16px; min-width: 0; }
+    .project .name { font-weight: 600; overflow-wrap: anywhere; }
+    a.name { color: var(--accent); text-decoration: none; }
+    a.name:hover { text-decoration: underline; }
     .status {
-      flex-shrink: 0; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.05em; color: var(--idea);
+      display: block; margin-top: 2px; font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em; color: var(--building);
     }
-    .status.building { color: var(--building); }
     .status.live { color: var(--live); }
-    p.desc { margin: 6px 0 0; color: var(--muted); }
-    a.tool {
-      display: inline-block; margin-top: 10px; color: var(--accent);
-      font-weight: 600; text-decoration: none;
+    .none { color: var(--idea); font-size: 0.95rem; }
+    @media (max-width: 480px) {
+      .head, .row { gap: 12px; }
+      .row { padding: 14px 12px; }
+      .head { padding: 0 12px 8px; }
+      .project { padding-left: 12px; }
+      p.desc { font-size: 0.9rem; }
     }
-    a.tool:hover { text-decoration: underline; }
     footer { margin-top: 40px; color: var(--muted); font-size: 0.9rem; }
   </style>
 </head>
@@ -56,21 +68,30 @@
     <h1>{{ site.title }}</h1>
     <p class="intro">{{ site.description }}</p>
 
+    <div class="head" aria-hidden="true"><span>Wish</span><span>Project</span></div>
     <ol>
       {% for wish in site.data.wishes %}
-      {% assign status = wish.status | default: "idea" | downcase %}
-      <li>
-        <div class="top">
+      {% assign project = nil %}
+      {% if wish.project %}{% assign project = site.data.projects | where: "id", wish.project | first %}{% endif %}
+      <li class="row">
+        <div>
           <h2>{{ wish.title }}</h2>
-          <span class="status {{ status }}">{{ status }}</span>
+          {% if wish.description %}<p class="desc">{{ wish.description }}</p>{% endif %}
         </div>
-        {% if wish.description %}<p class="desc">{{ wish.description }}</p>{% endif %}
-        {% if wish.tool %}<a class="tool" href="{{ wish.tool }}">Try the tool →</a>{% endif %}
+        <div class="project">
+          {% if project %}
+            {% assign status = project.status | default: "building" | downcase %}
+            {% if project.link %}<a class="name" href="{{ project.link }}">{{ project.name }} →</a>{% else %}<span class="name">{{ project.name }}</span>{% endif %}
+            <span class="status {{ status }}">{{ status }}</span>
+          {% else %}
+            <span class="none">Not yet</span>
+          {% endif %}
+        </div>
       </li>
       {% endfor %}
     </ol>
 
-    <footer>{{ site.data.wishes.size }} wishes · want to use one of these? Get in touch.</footer>
+    <footer>{{ site.data.wishes.size }} wishes · {{ site.data.projects.size }} projects · want to use one of these? Get in touch.</footer>
   </main>
 </body>
 </html>

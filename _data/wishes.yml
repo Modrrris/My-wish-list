@@ -4,8 +4,8 @@
 #  Each wish starts with "- title:". Fields:
 #    title        the wish, short (required)
 #    description  one sentence about it (optional)
-#    status       idea | building | live (optional, default: idea)
-#    tool         link to the tool, once it exists (optional)
+#    project      the id of a project from projects.yml (optional;
+#                 leave it out while no project exists yet)
 #
 #  Keep the two-space indent under each "- title:".
 #  The examples below are placeholders — replace them with yours.
@@ -13,13 +13,15 @@
 
 - title: Remember what I read
   description: I read lots of articles and forget them a week later. I want a quick way to save and resurface the good bits.
-  status: idea
-
-- title: Plan meals from what's in the fridge
-  description: Tell it what I have, get a dinner idea that doesn't need another trip to the shop.
-  status: building
+  project: notebook
 
 - title: Turn voice notes into a to-do list
   description: I record ideas while walking. I want them turned into tasks automatically.
-  status: live
-  tool: https://example.com
+  project: notebook
+
+- title: Plan meals from what's in the fridge
+  description: Tell it what I have, get a dinner idea that doesn't need another trip to the shop.
+  project: pantry
+
+- title: Remember to call my parents
+  description: A gentle nudge when it's been too long.
